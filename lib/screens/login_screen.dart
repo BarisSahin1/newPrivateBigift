@@ -1,3 +1,4 @@
+import 'package:bi_gift_app/screens/forgot_password_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -129,7 +130,10 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context)
+                      .pushNamed(ForgotPasswordScreen.routeName);
+                },
                 child: Text(
                   'Forgot a password ?',
                   style: TextStyle(fontSize: 16),
