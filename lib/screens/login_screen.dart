@@ -8,6 +8,16 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,12 +26,6 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         title: Container(
           margin: const EdgeInsets.symmetric(horizontal: 15),
-          // decoration: BoxDecoration(
-          //     border: Border.all(
-          //       color: Colors.black,
-          //       width: 2,
-          //     ),
-          //     ),
           child: const Text(
             'Bi Gift',
             style: TextStyle(
@@ -56,6 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: TextField(
+              controller: _emailController,
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
                   //borderRadius: BorderRadius.all(),
@@ -85,6 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: TextField(
+              controller: _passwordController,
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
