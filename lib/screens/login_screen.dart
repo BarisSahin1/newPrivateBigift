@@ -30,6 +30,7 @@ class LoginScreen extends StatelessWidget {
             margin: EdgeInsets.only(right: 18),
             child: Icon(
               Icons.card_giftcard,
+              size: 30,
             ),
           ),
         ],
@@ -51,9 +52,28 @@ class LoginScreen extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             child: TextField(
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
+                enabledBorder: OutlineInputBorder(
+                  //borderRadius: BorderRadius.all(),
+                  borderSide: BorderSide(
+                    color: Colors.black,
+                    width: 2,
+                  ),
+                ),
+                prefixIcon: Icon(
+                  Icons.person,
+                  color: Theme.of(context).primaryColor,
+                ),
                 labelText: 'Email',
+                labelStyle: TextStyle(
+                  color: Colors.black,
+                  fontSize: 19,
+                  fontWeight: FontWeight.bold,
+                  //color: Theme.of(context).primaryColor,
+                ),
                 hintText: 'E-mail',
+                hintStyle: TextStyle(
+                  fontSize: 18,
+                ),
               ),
             ),
           ),
@@ -61,9 +81,24 @@ class LoginScreen extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             child: TextField(
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.black,
+                    width: 2,
+                  ),
+                ),
+                prefixIcon: Icon(
+                  Icons.lock,
+                  color: Theme.of(context).primaryColor,
+                ),
                 labelText: 'Password',
-                hintText: 'password',
+                labelStyle: TextStyle(
+                  color: Colors.black,
+                  fontSize: 19,
+                  fontWeight: FontWeight.bold,
+                ),
+                hintText: 'Password',
+                hintStyle: TextStyle(fontSize: 18),
               ),
             ),
           ),
@@ -72,7 +107,7 @@ class LoginScreen extends StatelessWidget {
               fixedSize: const Size(90, 50),
               padding: const EdgeInsets.all(8),
               textStyle: TextStyle(
-                fontSize: 18,
+                fontSize: 19,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -84,7 +119,10 @@ class LoginScreen extends StatelessWidget {
             children: [
               TextButton(
                 onPressed: () {},
-                child: Text('Forgot a password ?'),
+                child: Text(
+                  'Forgot a password ?',
+                  style: TextStyle(fontSize: 16),
+                ),
               ),
             ],
           ),
