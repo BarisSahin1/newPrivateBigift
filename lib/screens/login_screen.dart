@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 253, 176, 61),
+      //backgroundColor: Color.fromARGB(255, 253, 176, 61),
       //AppBar's styled title with the help of wrapper container widget
       appBar: AppBar(
         title: Container(
@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 prefixIcon: Icon(
-                  Icons.person,
+                  Icons.mail,
                   color: Theme.of(context).primaryColor,
                 ),
                 labelText: 'Email',
