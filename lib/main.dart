@@ -1,3 +1,4 @@
+import 'package:bi_gift_app/screens/forgot_password_screen.dart';
 import 'package:bi_gift_app/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.indigo,
       ),
       home: const LoginScreen(),
+      routes: {
+        ForgotPasswordScreen.routeName: (ctx) => ForgotPasswordScreen(),
+      },
     );
   }
 }
