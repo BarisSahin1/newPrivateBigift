@@ -59,6 +59,7 @@ class _LoginFormState extends State<LoginForm> {
           padding: const EdgeInsets.all(12.0),
           child: TextField(
             controller: _emailController,
+            onEditingComplete: () => FocusScope.of(context).nextFocus(),
             decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
                 //borderRadius: BorderRadius.all(),
@@ -93,6 +94,7 @@ class _LoginFormState extends State<LoginForm> {
           padding: const EdgeInsets.all(12.0),
           child: TextField(
             obscureText: true,
+            onEditingComplete: () => FocusScope.of(context).nextFocus(),
             controller: _passwordController,
             decoration: InputDecoration(
               enabledBorder: OutlineInputBorder(
