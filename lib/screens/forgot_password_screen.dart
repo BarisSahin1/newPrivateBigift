@@ -1,9 +1,15 @@
+import 'package:bi_gift_app/widgets/forgot_password_alert_dialog.dart';
 import 'package:flutter/material.dart';
 
-class ForgotPasswordScreen extends StatelessWidget {
+class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({Key? key}) : super(key: key);
   static const routeName = "forgot_password_route";
 
+  @override
+  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
+}
+
+class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,14 +28,14 @@ class ForgotPasswordScreen extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(
-            height: 25,
+            height: 15,
           ),
           Icon(
             Icons.arrow_downward_rounded,
             size: 60,
           ),
           Container(
-            margin: EdgeInsets.only(top: 35),
+            margin: EdgeInsets.only(top: 25),
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Text(
               'We are going to send a verification email to your mail address.',
@@ -37,7 +43,7 @@ class ForgotPasswordScreen extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
           ),
@@ -83,7 +89,9 @@ class ForgotPasswordScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              myDialog(context);
+            },
             child: Text('Send'),
           ),
         ],
