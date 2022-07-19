@@ -6,6 +6,7 @@ void main() {
   runApp(const MyApp());
 }
 
+// Color.fromARGB(255, 253, 176, 61),
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        scaffoldBackgroundColor: Color.fromARGB(255, 253, 176, 61),
+        scaffoldBackgroundColor: Colors.white,
         primarySwatch: Colors.indigo,
       ),
       home: const LoginScreen(),
