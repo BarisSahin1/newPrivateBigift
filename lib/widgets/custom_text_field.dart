@@ -34,7 +34,7 @@ class CustomTextField extends StatelessWidget {
     this.lengthLimitingTextInput,
     this.height,
     this.width,
-    this.textAlign,
+    this.textAlign = TextAlign.center,
     this.filteringTextInputFormatter,
     this.node,
   }) : super(key: key);
@@ -66,7 +66,14 @@ class CustomTextField extends StatelessWidget {
               borderSide: BorderSide(
                 width: 2,
                 color:
-                    isFilled! ? Theme.of(context).primaryColor : Colors.amber,
+                    isFilled! ? Theme.of(context).primaryColor : Colors.black,
+              ),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                width: 2,
+                color:
+                    isFilled! ? Theme.of(context).primaryColor : Colors.black,
               ),
             ),
 
