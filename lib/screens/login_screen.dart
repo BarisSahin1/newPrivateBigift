@@ -1,5 +1,6 @@
 import 'package:bi_gift_app/screens/forgot_password_screen.dart';
 import 'package:bi_gift_app/widgets/login_form.dart';
+
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -51,6 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           LoginForm(),
+
           //Forgot a password button
           Container(
             alignment: Alignment.centerRight,
