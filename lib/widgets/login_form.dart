@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatefulWidget {
@@ -131,11 +130,13 @@ class _LoginFormState extends State<LoginForm> {
             ),
           ),
           onPressed: () {
-            setState(() {
-              if (_submitted == false) {
-                _submitted = true;
-              }
-            });
+            setState(
+              () {
+                if (_submitted == false) {
+                  _submitted = true;
+                }
+              },
+            );
           },
           child: Text('Login'),
         ),
