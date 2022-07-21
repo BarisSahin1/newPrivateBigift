@@ -90,7 +90,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               ),
             ),
             onPressed: () {
-              myDialog(context);
+              forgotPasswordAlerDialog(context);
             },
             child: Text('Send'),
           ),
