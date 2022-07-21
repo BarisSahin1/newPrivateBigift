@@ -1,8 +1,9 @@
 import "package:flutter/material.dart";
 
 import 'otp_field.dart';
+import 'otp_timer.dart';
 
-Future myDialog(context) {
+Future forgotPasswordAlerDialog(context) {
   return showDialog(
     context: context,
     builder: (ctx) => StatefulBuilder(
@@ -18,6 +19,7 @@ Future myDialog(context) {
             textAlign: TextAlign.center,
           ),
           actions: [
+            OTPTimer(context),
             OtpField(),
             TextButton(
               onPressed: () {
