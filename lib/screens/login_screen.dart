@@ -1,4 +1,4 @@
-import 'package:bi_gift_app/screens/forgot_password_screen.dart';
+import 'package:bi_gift_app/extensions/media_query_extension.dart';
 import 'package:bi_gift_app/widgets/login_form.dart';
 
 import 'package:flutter/material.dart';
@@ -13,12 +13,15 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
+    var mediaquery = MediaQuery.maybeOf(context)!.size;
+    print(mediaquery);
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       //backgroundColor: Color.fromARGB(255, 253, 176, 61),
       //AppBar's styled title with the help of wrapper container widget
       appBar: AppBar(
         title: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 15),
+          padding: EdgeInsets.all(context.width(26)),
           child: const Text(
             'Bi Gift',
             style: TextStyle(
@@ -38,33 +41,38 @@ class _LoginScreenState extends State<LoginScreen> {
         ],
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          //FlutterLogo
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(200),
-            ),
-            child: Center(
-              child: FlutterLogo(
-                size: 100,
+          //Gift image with a container
+          Expanded(
+            flex: 5,
+            child: Container(
+              //margin: EdgeInsets.only(top: mediaquery.height / 12),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.white,
+              ),
+              child: Image.asset(
+                'assets/images/gift.png',
+                height: 150,
+                width: 150,
+                fit: BoxFit.contain,
               ),
             ),
           ),
-          LoginForm(),
 
-          //Forgot a password button
-          Container(
-            alignment: Alignment.centerRight,
-            child: TextButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed(ForgotPasswordScreen.routeName);
-              },
-              child: Text(
-                'Forgot a password ?',
-                style: TextStyle(fontSize: 16),
-              ),
+          Expanded(
+            flex: 6,
+            child: Container(
+              // margin: EdgeInsets.only(
+              //   top: mediaquery.height / 20,
+              // ),
+              child: LoginForm(),
             ),
+          ),
+
+          Expanded(
+            flex: 2,
+            child: SizedBox(),
           ),
         ],
       ),
