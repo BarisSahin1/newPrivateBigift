@@ -1,3 +1,4 @@
+import 'package:bi_gift_app/screens/forgot_password_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginForm extends StatefulWidget {
@@ -53,96 +54,112 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: TextField(
-            controller: _emailController,
-            onEditingComplete: () => FocusScope.of(context).nextFocus(),
-            decoration: InputDecoration(
-              enabledBorder: OutlineInputBorder(
-                //borderRadius: BorderRadius.all(),
-                borderSide: BorderSide(
-                  color: Colors.black,
-                  width: 2,
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: TextField(
+              controller: _emailController,
+              onEditingComplete: () => FocusScope.of(context).nextFocus(),
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  //borderRadius: BorderRadius.all(),
+                  borderSide: BorderSide(
+                    color: Colors.black,
+                    width: 2,
+                  ),
                 ),
-              ),
-              prefixIcon: Icon(
-                Icons.mail,
-                color: Theme.of(context).primaryColor,
-              ),
-              labelText: 'Email',
-              labelStyle: TextStyle(
-                color: Colors.black,
-                fontSize: 19,
-                fontWeight: FontWeight.bold,
-                //color: Theme.of(context).primaryColor,
-              ),
-              hintText: 'E-mail',
-              hintStyle: TextStyle(
-                fontSize: 18,
-              ),
-              errorText: _submitted ? mailCheck(_emailController) : null,
-            ),
-            onChanged: (_) => setState(
-              () {},
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: TextField(
-            obscureText: true,
-            onSubmitted: (_) => FocusScope.of(context).unfocus(),
-            controller: _passwordController,
-            decoration: InputDecoration(
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.black,
-                  width: 2,
+                prefixIcon: Icon(
+                  Icons.mail,
+                  color: Theme.of(context).primaryColor,
                 ),
+                labelText: 'Email',
+                labelStyle: TextStyle(
+                  color: Colors.black,
+                  fontSize: 19,
+                  fontWeight: FontWeight.bold,
+                  //color: Theme.of(context).primaryColor,
+                ),
+                hintText: 'E-mail',
+                hintStyle: TextStyle(
+                  fontSize: 18,
+                ),
+                errorText: _submitted ? mailCheck(_emailController) : null,
               ),
-              prefixIcon: Icon(
-                Icons.lock,
-                color: Theme.of(context).primaryColor,
+              onChanged: (_) => setState(
+                () {},
               ),
-              labelText: 'Password',
-              labelStyle: TextStyle(
-                color: Colors.black,
-                fontSize: 19,
-                fontWeight: FontWeight.bold,
-              ),
-              hintText: 'Password',
-              hintStyle: TextStyle(fontSize: 18),
-              errorText: _submitted ? passwordCheck(_passwordController) : null,
-            ),
-            onChanged: (_) => setState(
-              () {},
-            ),
-          ),
-        ),
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            fixedSize: const Size(90, 50),
-            padding: const EdgeInsets.all(8),
-            textStyle: TextStyle(
-              fontSize: 19,
-              fontWeight: FontWeight.bold,
             ),
           ),
-          onPressed: () {
-            setState(
-              () {
-                if (_submitted == false) {
-                  _submitted = true;
-                }
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
+            child: TextField(
+              obscureText: true,
+              onSubmitted: (_) => FocusScope.of(context).unfocus(),
+              controller: _passwordController,
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.black,
+                    width: 2,
+                  ),
+                ),
+                prefixIcon: Icon(
+                  Icons.lock,
+                  color: Theme.of(context).primaryColor,
+                ),
+                labelText: 'Password',
+                labelStyle: TextStyle(
+                  color: Colors.black,
+                  fontSize: 19,
+                  fontWeight: FontWeight.bold,
+                ),
+                hintText: 'Password',
+                hintStyle: TextStyle(fontSize: 18),
+                errorText:
+                    _submitted ? passwordCheck(_passwordController) : null,
+              ),
+              onChanged: (_) => setState(
+                () {},
+              ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(bottom: 8, top: 0, right: 8),
+            alignment: Alignment.centerRight,
+            child: TextButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(ForgotPasswordScreen.routeName);
               },
-            );
-          },
-          child: Text('Login'),
-        ),
-      ],
+              child: Text(
+                'Forgot a password ?',
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+          ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              fixedSize: const Size(90, 50),
+              padding: const EdgeInsets.all(8),
+              textStyle: TextStyle(
+                fontSize: 19,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            onPressed: () {
+              setState(
+                () {
+                  if (_submitted == false) {
+                    _submitted = true;
+                  }
+                },
+              );
+            },
+            child: Text('Login'),
+          ),
+        ],
+      ),
     );
   }
 }
