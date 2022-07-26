@@ -1,6 +1,6 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-class LoginHandler {
+class NetworkHandler {
   static String? token;
   static bool isLoggedIn = false;
   static final storage = FlutterSecureStorage();
@@ -11,9 +11,5 @@ class LoginHandler {
 
   static Future<String?> getToken() {
     return storage.read(key: 'Token');
-  }
-
-  static Future<void> changeUserLoginStatus() async {
-    isLoggedIn = true;
   }
 }
