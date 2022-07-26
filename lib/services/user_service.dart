@@ -24,11 +24,8 @@ class UserService {
     var accessToken = response.headers['access-token'];
     print(response.statusCode);
     if (response.statusCode == 200) {
-      print('a');
       NetworkHandler.storeToken(accessToken);
-      print(User.isLoggedIn);
       changeUserLoginStatus();
-      print(User.isLoggedIn);
     } else {
       print("Error");
     }
