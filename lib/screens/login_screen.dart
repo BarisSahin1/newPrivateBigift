@@ -40,13 +40,12 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          //Gift image with a container
-          Expanded(
-            flex: 5,
-            child: Container(
-              //margin: EdgeInsets.only(top: mediaquery.height / 12),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            //Gift image with a container
+            Container(
+              padding: EdgeInsets.only(top: context.height(12)),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
@@ -58,23 +57,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 fit: BoxFit.contain,
               ),
             ),
-          ),
 
-          Expanded(
-            flex: 6,
-            child: Container(
-              // margin: EdgeInsets.only(
-              //   top: mediaquery.height / 20,
-              // ),
+            Container(
+              margin: EdgeInsets.only(
+                top: context.height(15),
+              ),
               child: LoginForm(),
             ),
-          ),
-
-          Expanded(
-            flex: 2,
-            child: SizedBox(),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
