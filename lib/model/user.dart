@@ -2,6 +2,7 @@ class User {
   String? email;
   String? password;
   String? name;
+  static bool isLoggedIn = false;
 
   User({
     this.email,
