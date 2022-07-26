@@ -48,7 +48,7 @@ class _OTPTimerState extends State<OTPTimer> {
   }
 
   void setCountDown() {
-    final reduceSecondsBy = 1;
+    const reduceSecondsBy = 1;
     setState(() {
       final seconds = myDuration.inSeconds - reduceSecondsBy;
       if (seconds < 0) {
@@ -61,11 +61,13 @@ class _OTPTimerState extends State<OTPTimer> {
     });
   }
 
+  @override
   void initState() {
     startTimer();
     super.initState();
   }
 
+  @override
   void dispose() {
     countDownTimer!.cancel();
 
