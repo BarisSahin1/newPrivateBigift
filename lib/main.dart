@@ -1,5 +1,8 @@
+import 'package:bi_gift_app/screens/dashboard_screen.dart';
 import 'package:bi_gift_app/screens/forgot_password_screen.dart';
 import 'package:bi_gift_app/screens/login_screen.dart';
+import 'package:bi_gift_app/screens/new_screen.dart';
+import 'package:bi_gift_app/screens/user_profile_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,6 +26,10 @@ class MyApp extends StatelessWidget {
       home: const LoginScreen(),
       routes: {
         ForgotPasswordScreen.routeName: (ctx) => ForgotPasswordScreen(),
+        DashBoardScreen.routeName: (context) => DashBoardScreen(),
+        MyWidget.routeName: (context) => MyWidget(),
+        UserProfileScreen.routeName: (context) => UserProfileScreen(),
+        LoginScreen.routeName: (context) => LoginScreen(),
       },
     );
   }
