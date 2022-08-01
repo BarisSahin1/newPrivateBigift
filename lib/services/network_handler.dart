@@ -51,16 +51,8 @@ class NetworkHandler {
       headers: {"Content-Type": "application/json"},
       body: bodyJson,
     );
-
     var accessToken = response.headers['access-token'];
-    print(response.statusCode);
-    if (response.statusCode == 200) {
-      await storeToken(accessToken);
-      return json.decode(response.body);
-    } else {
-      deleteToken();
-      print("Error message");
-    }
+    return response;
   }
 
   static Future<dynamic> delete(String url) async {
