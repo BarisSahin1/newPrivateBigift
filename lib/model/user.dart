@@ -13,10 +13,11 @@ class User {
     this.url,
   });
 
-  User.fromJson(Map<String, dynamic> json) {
+  User.fromJson(Map<String, dynamic> json, String imageUrl) {
     email = json["data"]["email"];
     name = json["data"]["name"];
     nickname = json["data"]["nickname"];
+    url = imageUrl;
   }
 
   Map<String, dynamic> toJson() => {
@@ -24,5 +25,6 @@ class User {
         'password': password,
         'name': name,
         'nickname': nickname,
+        'url': url,
       };
 }
