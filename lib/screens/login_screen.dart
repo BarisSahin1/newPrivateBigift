@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
-
+  static const routeName = "login-screen";
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -21,7 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
       //AppBar's styled title with the help of wrapper container widget
       appBar: AppBar(
         title: Container(
-          padding: EdgeInsets.all(context.width(26)),
+          padding: context.paddingMedium,
           child: const Text(
             'Bi Gift',
             style: TextStyle(
@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         actions: [
           Container(
-            margin: EdgeInsets.only(right: 18),
+            padding: EdgeInsets.only(right: context.widthVal(25)),
             child: Icon(
               Icons.card_giftcard,
               size: 30,
@@ -45,22 +45,24 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             //Gift image with a container
             Container(
-              padding: EdgeInsets.only(top: context.height(12)),
+              padding: EdgeInsets.only(
+                top: context.heightVal(12),
+              ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
               ),
               child: Image.asset(
                 'assets/images/gift.png',
-                height: 150,
-                width: 150,
+                height: context.heightVal(5.30),
+                width: context.heightVal(5.30),
                 fit: BoxFit.contain,
               ),
             ),
 
             Container(
               margin: EdgeInsets.only(
-                top: context.height(15),
+                top: context.heightVal(15),
               ),
               child: LoginForm(),
             ),
