@@ -3,6 +3,7 @@ import 'package:bi_gift_app/screens/forgot_password_screen.dart';
 import 'package:bi_gift_app/screens/login_screen.dart';
 import 'package:bi_gift_app/screens/new_screen.dart';
 import 'package:bi_gift_app/screens/user_profile_screen.dart';
+import 'package:bi_gift_app/screens/user_profile_update_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,14 +23,18 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         primarySwatch: Colors.indigo,
+        appBarTheme: AppBarTheme(
+          color: Colors.red[600],
+        ),
       ),
-      home: const LoginScreen(),
+      home: LoginScreen(),
       routes: {
         ForgotPasswordScreen.routeName: (ctx) => ForgotPasswordScreen(),
         DashBoardScreen.routeName: (context) => DashBoardScreen(),
         MyWidget.routeName: (context) => MyWidget(),
         UserProfileScreen.routeName: (context) => UserProfileScreen(),
         LoginScreen.routeName: (context) => LoginScreen(),
+        UserProfileUpdate.routeName: (context) => UserProfileUpdate(),
       },
     );
   }
