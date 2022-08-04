@@ -3,21 +3,13 @@ import 'package:bi_gift_app/widgets/login_form.dart';
 
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatelessWidget {
   static const routeName = "login-screen";
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
 
-class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    var mediaquery = MediaQuery.maybeOf(context)!.size;
-    print(mediaquery);
+    print("Height : ${context.height} Width: ${context.width}");
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      //backgroundColor: Color.fromARGB(255, 253, 176, 61),
       //AppBar's styled title with the help of wrapper container widget
       appBar: AppBar(
         title: Container(
@@ -30,42 +22,44 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
         ),
+        // Gift icon
         actions: [
           Container(
-            padding: EdgeInsets.only(right: context.widthVal(25)),
+            padding: EdgeInsets.only(right: context.widthPercentile * 4),
             child: Icon(
               Icons.card_giftcard,
-              size: 30,
+              size: context.heightPercentile * 3.75,
             ),
           ),
         ],
       ),
+      // Column widget contain children textfields
       body: SingleChildScrollView(
         child: Column(
           children: [
-            //Gift image with a container
+            //sizedBox to space out top of the gift image
+            SizedBox(
+              height: context.heightPercentile * 8.5,
+            ),
+            //Gift image with wrapper container for styling
             Container(
-              padding: EdgeInsets.only(
-                top: context.heightVal(12),
-              ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
               ),
               child: Image.asset(
                 'assets/images/gift.png',
-                height: context.heightVal(5.30),
-                width: context.heightVal(5.30),
+                height: context.heightPercentile * 19,
+                width: context.heightPercentile * 19,
                 fit: BoxFit.contain,
               ),
             ),
 
-            Container(
-              margin: EdgeInsets.only(
-                top: context.heightVal(15),
-              ),
-              child: LoginForm(),
+            SizedBox(
+              height: context.heightPercentile * 6.7,
             ),
+            //Call LoginFormWidget
+            LoginFormWidget(),
           ],
         ),
       ),
