@@ -24,36 +24,51 @@ class DashBoardScreen extends StatelessWidget {
       ),
       //Locate Docked button on the bottomNavigationbar
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      //Add new button
+      //Add-new-gift button
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {},
       ),
-      bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        child: Container(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              IconButton(
-                icon: Icon(Icons.home),
-                onPressed: () {
-                  pageController.jumpToPage(0);
-                },
-              ),
-              IconButton(
-                  icon: FaIcon(FontAwesomeIcons.hashtag), onPressed: () {}),
-              // Dummy sizedBox
-              SizedBox(width: context.widthPercentile * 10.5),
-              IconButton(icon: Icon(Icons.notifications), onPressed: () {}),
-              IconButton(
-                icon: Icon(Icons.account_circle),
-                onPressed: () {
-                  pageController.jumpToPage(1);
-                },
-              ),
-            ],
-          ),
+      bottomNavigationBar: BottomNavigationBar(pageController: pageController),
+    );
+  }
+}
+
+//Bottom navigation bar splitted widget
+class BottomNavigationBar extends StatelessWidget {
+  const BottomNavigationBar({
+    Key? key,
+    required this.pageController,
+  }) : super(key: key);
+
+  final PageController pageController;
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomAppBar(
+      shape: CircularNotchedRectangle(),
+      child: Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.home),
+              onPressed: () {
+                pageController.jumpToPage(0);
+              },
+            ),
+            IconButton(
+                icon: FaIcon(FontAwesomeIcons.hashtag), onPressed: () {}),
+            // Dummy sizedBox
+            SizedBox(width: context.widthPercentile * 10.5),
+            IconButton(icon: Icon(Icons.notifications), onPressed: () {}),
+            IconButton(
+              icon: Icon(Icons.account_circle),
+              onPressed: () {
+                pageController.jumpToPage(1);
+              },
+            ),
+          ],
         ),
       ),
     );
