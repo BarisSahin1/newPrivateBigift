@@ -1,6 +1,5 @@
+import 'package:bi_gift_app/widgets/base-widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
-
-import 'custom_text_field.dart';
 
 class OtpField extends StatefulWidget {
   @override

@@ -93,18 +93,6 @@ class _OTPTimerState extends State<OTPTimer> {
                 ),
               )
             : showText(),
-
-        //TextButton(onPressed: resetTimer, child: Text('Re-send')),
-        //TextButton(onPressed: resetTimer, child: Text('Re-send')),
-        // ElevatedButton(
-        //   onPressed: startTimer,
-        //   child: Text(
-        //     'Start',
-        //     style: TextStyle(
-        //       fontSize: 15,
-        //     ),
-        //   ),
-        // ),
       ],
     );
   }

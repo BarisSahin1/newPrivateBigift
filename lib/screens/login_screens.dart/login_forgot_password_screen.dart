@@ -1,4 +1,5 @@
-import 'package:bi_gift_app/widgets/forgot_password_alert_dialog.dart';
+import 'package:bi_gift_app/widgets/forgot-password-widgets/forgot_password_alert_dialog.dart';
+import 'package:bi_gift_app/extensions/media_query_extension.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
@@ -78,10 +79,11 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             ),
           ),
           SizedBox(
-            height: 10,
+            height: context.heightPercentile * 1.2,
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
+              primary: Colors.black,
               fixedSize: const Size(90, 50),
               padding: const EdgeInsets.all(8),
               textStyle: TextStyle(
@@ -89,8 +91,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            onPressed: () {
-              forgotPasswordAlerDialog(context);
+            onPressed: () async {
+              await forgotPasswordAlerDialog();
             },
             child: Text('Send'),
           ),

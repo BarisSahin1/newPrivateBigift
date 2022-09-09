@@ -9,7 +9,7 @@ extension MediaQueryWithValues on BuildContext {
 //   double get sizeExt => 10;
 // }
 
-extension sizeRatio on BuildContext {
+extension SizeRatio on BuildContext {
   double get widthPercentile => width / 100;
   double get heightPercentile => height / 100;
 }

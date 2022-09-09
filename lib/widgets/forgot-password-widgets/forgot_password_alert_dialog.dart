@@ -1,11 +1,11 @@
+import 'package:bi_gift_app/utils/global/global_key.dart';
+import 'package:bi_gift_app/widgets/forgot-password-widgets/otp_field.dart';
+import 'package:bi_gift_app/widgets/forgot-password-widgets/otp_timer.dart';
 import "package:flutter/material.dart";
 
-import 'otp_field.dart';
-import 'otp_timer.dart';
-
-Future forgotPasswordAlerDialog(context) {
+Future forgotPasswordAlerDialog() async {
   return showDialog(
-    context: context,
+    context: GlobalVariable.navState.currentContext!,
     builder: (ctx) => StatefulBuilder(
       builder: (context, setState) {
         return AlertDialog(
@@ -15,7 +15,7 @@ Future forgotPasswordAlerDialog(context) {
             ),
           ),
           title: const Text(
-            'Please enter a 4 digit verification number.',
+            'Lütfen 4 haneli doğrulama kodunuz giriniz.',
             textAlign: TextAlign.center,
           ),
           actions: [
